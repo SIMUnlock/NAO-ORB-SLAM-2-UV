@@ -1,0 +1,30 @@
+1. La carpeta de Comandos de Instalacion y Utilidades, contiene un script para la instalacion del ORB SLAM 2 ( orb.sh ) y comandosbonitos.txt ( comandos que encontre utiles para el proyecto)
+2. Mediciones NAO - ORB SLAM , contiene datos de comparacion entre orb slam y su entorno
+3. Naoqi contiene todos los controladores necesarios para comunicarse con el nao via NAOQI
+4. Paquetes de ros, contiene los src necesarios para el funcionamiento del orb slam 2
+5. Programas PY, contiene el programa de calibracion para el algoritmo orb slam 2 - NAO, y un programa para testear el movimiento del robot
+
+NOTA: NAOQI y la carpeta catkin_ws que se encuentra en paquetes ROS, deben de ponerse en la carpeta raiz de su usuario.
+
+NOTA2: La carpeta de ORB_SLAM_ROS debe de ingresarla dentro de su carpeta Descargas
+
+NOTA3: Se debe crear las siguientes carpetas, en el directorio raiz de su usuario crear una llamada src y dentro de src una llamada orbslam2
+
+NOTA4: Hay que tener instalado ros kinetic
+
+NOTA5: Para compilar el orbslam2 se necesita el compilador ninja build
+
+NOTA6: La carpeta orb_slam_2 es la mas importante en el proyecto
+
+NOTA7: Se recomiendan 16gb de ram para la compilacion, o bien 10gb de ram con 6 gb de memoria swap
+
+NOTA8: Es importante saber compilar paquetes de ros
+
+NOTA9: Los path de las rutas que se tienen que agregar se encuentras en el archivo comandosbonitos ( en la primera parte ). IMPORTANTE: SE DEBE DE SUSTITUIR MI USUARIO "robotica" POR EL QUE ESTAS UTILIZANDO.
+
+VERSIONES DE SOFTWARE:
+
+- ROS KINETIC
+- PYTHON 2.7
+- C++
+- UBUNTU 16.04LTS

@@ -1,0 +1,96 @@
+comandos bonitos
+
+
+Al iniciar la pc
+source /opt/ros/kinetic/setup.bash
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+
+
+export PYTHONPATH=~/naoqi/pynaoqi-python2.7-2.1.4.13-linux64:$PYTHONPATH
+echo 'export PYTHONPATH=~/naoqi/pynaoqi-python2.7-2.1.4.13-linux64:$PYTHONPATH' >> ~/.bashrc
+
+
+export PYTHONPATH=~/naoqi/naoqi-sdk-2.1.4.13-linux64/lib:$PYTHONPATH
+echo 'export PYTHONPATH=~/naoqi/naoqi-sdk-2.1.4.13-linux64/lib:$PYTHONPATH' >> ~/.bashrc
+
+source ~/catkin_ws/devel/setup.bash
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+
+export AL_DIR=~/naoqi-sdk-2.1.4.13-linux64
+echo "export AL_DIR=~/naoqi-sdk-2.1.4.13-linux64" >> ~/.bashrc
+
+
+echo "export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/robotica/Descargas/orb_slam_ros" >> ~/.bashrc
+export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/robotica/Descargas/orb_slam_ros
+
+
+cd catkin_ws/
+source devel/setup.bash
+
+
+export ROS_MASTER_URI=http://192.168.1.103:11311
+
+----------------------------
+correr camara
+
+roslaunch usb_cam usb_cam-test.launch
+
+--------------------------
+agregar path del slam
+
+export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/home/robotica/Descargas/orb_slam_ros
+
+--------------------------
+correr slam ros
+
+roslaunch orb_slam_ros orb_slam_mono.launch
+
+-------
+
+
+NINJA COMPILE
+
+(en carpeta del proyecto,ej en el slam ros )
+mkdir build
+cd build
+cmake .. -DROS_BUILD_TYPE=Release -G Ninja
+ninja
+
+-----------------------
+
+NAO
+SDK
+
+~/naoqi/naoqi-sdk-2.1.4.13-linux64/naoqi 
+
+
+------------------
+NAO PYTHON
+
+~/naoqi/pynaoqi-python2.7-2.1.4.13-linux64:$PYTHONPATH
+echo 'export PYTHONPATH=~/naoqi/pynaoqi-python2.7-2.1.4.13-linux64:$PYTHONPATH' >> ~/.bashrc
+
+---------------
+
+// NAO VIRTUAL
+
+roscore
+
+~/naoqi-sdk-2.1.4.13-linux64/naoqi --verbose --broker-ip 127.0.0.1
+
+LD_LIBRARY_PATH=~/naoqi-sdk-2.1.4.13-linux64/lib:$LD_LIBRARY_PATH NAO_IP=127.0.0.1 
+
+------------------------
+
+//NAO REAL
+
+roslaunch nao_bringup nao_full_py.launch nao_ip:=192.168.1.100 roscore_ip:=192.168.1.101 network_interface:=wlp2s0
+
+
+
+-----------------------
+rostopic pub -1 /cmd_vel geometry_msgs/Twist '{linear: {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
+
+rostopic pub -1 /cmd_vel geometry_msgs/Twist '{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
+
+
